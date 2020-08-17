@@ -50,10 +50,7 @@ npm i  --save justcho-tutu
  }
  ```
 
-4.引入 svg symbols
- ```
- <script src="//at.alicdn.com/t/font_2002564_i0ml0bgp4f.js"></script>
- ```
+
 
 ## 文档
 

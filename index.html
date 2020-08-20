@@ -7,85 +7,84 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>突突</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box
-        }
-
+        * {margin: 0; padding: 0; box-sizing: border-box;}
         html {
             --button-height: 32px;
             --font-size: 14px;
             --button-bg: white;
             --button-active-bg: #eee;
-            --bordor-radius: 4px;
+            --border-radius: 4px;
             --color: #333;
             --border-color: #999;
             --border-color-hover: #666;
         }
-
         #app {
             margin: 20px;
         }
-
         body {
             font-size: var(--font-size);
         }
-
     </style>
     <style>
-        .box {
+        .box{
             margin: 20px;
         }
     </style>
 </head>
 <body>
-
 <div id="app">
-    <div style="border: 1px solid black">
-        <g-row>
+    <div style="border: 1px solid black;">
+
+        <g-row gutter="20">
             <g-col>1</g-col>
             <g-col>2</g-col>
         </g-row>
-        <g-row>
+        <g-row gutter="20">
             <g-col>1</g-col>
             <g-col>2</g-col>
             <g-col>3</g-col>
         </g-row>
-        <g-row>
+        <g-row gutter="20">
             <g-col>1</g-col>
             <g-col>2</g-col>
             <g-col>3</g-col>
             <g-col>4</g-col>
         </g-row>
-        <g-row>
+        <g-row gutter="20">
             <g-col span="2">1</g-col>
             <g-col span="20" offset="2">11</g-col>
         </g-row>
-        <g-row>
+        <g-row gutter="20">
+            <g-col span="4">1</g-col>
+            <g-col span="20">11</g-col>
+        </g-row>
+        <g-row gutter="20">
             <g-col span="4">1</g-col>
             <g-col span="18" offset="2">11</g-col>
         </g-row>
-        <g-row>
+        <g-row gutter="20">
             <g-col span="4">1</g-col>
             <g-col span="8" offset="2">11</g-col>
             <g-col span="8" offset="2">11</g-col>
         </g-row>
+        <g-row gutter="20">
+            <g-col span="4">1</g-col>
+            <g-col span="4" offset="6">11</g-col>
+            <g-col span="8" offset="2">11</g-col>
+        </g-row>
     </div>
-
-
     <hr>
     <div class="box">
         <g-input v-model="message"></g-input>
         <p>{{message}}</p>
         <button @click="message+=1">+1</button>
     </div>
-
     <div class="box">
-        <g-button :loading="loading1" @click="loading1=!loading1">
+        <g-button :loading="loading1" @click="loading1 = !loading1">
             按钮
         </g-button>
-        <g-button icon="settings" :loading="loading2" @click="loading2 = !loading2">
+        <g-button icon="settings" :loading="loading2"
+                  @click="loading2 = !loading2">
             按钮
         </g-button>
         <g-button icon="settings" icon-position="right" :loading="loading3"
@@ -99,8 +98,6 @@
         </g-button-group>
     </div>
 </div>
-
 <script src="./src/app.js"></script>
-
 </body>
 </html>

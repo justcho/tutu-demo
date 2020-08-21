@@ -45,13 +45,13 @@
     computed: {
       colClass () {
         let {span, offset, ipad, narrowPc, pc, widePc} = this
+        let createClasses = this.createClasses
         return [
-          span && `col-${span}`,
-          offset && `offset-${offset}`,
-          ... (ipad ? [`col-ipad-${ipad.span}`] : []),
-          ... (narrowPc ? [`col-narrow-pc-${narrowPc.span}`] : []),
-          ... (pc ? [`col-pc-${pc.span}`] : []),
-          ... (widePc ? [`col-wide-pc-${widePc.span}`] : []),
+          ...createClasses({span, offset}),
+          ...createClasses(ipad, 'ipad-'),
+          ...createClasses(narrowPc, 'narrow-pc-'),
+          ...createClasses(pc, 'pc-'),
+          ...createClasses(widePc, 'wide-pc-'),
         ]
       },
       colStyle () {

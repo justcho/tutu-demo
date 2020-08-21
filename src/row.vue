@@ -12,23 +12,22 @@
       },
       align: {
         type: String,
-        validator(value) {
+        validator (value) {
           return ['left', 'right', 'center'].includes(value)
         }
-      },
+      }
     },
     computed: {
-      rowStyle() {
+      rowStyle () {
         let {gutter} = this
         return {marginLeft: -gutter / 2 + 'px', marginRight: -gutter / 2 + 'px'}
       },
-      rowClass() {
+      rowClass () {
         let {align} = this
         return [align && `align-${align}`]
-      },
+      }
     },
-
-    mounted() {
+    mounted () {
       this.$children.forEach((vm) => {
         vm.gutter = this.gutter
       })
@@ -36,17 +35,15 @@
   }
 </script>
 <style scoped lang="scss">
-    .row {
+    .row{
         display: flex;
-
+        flex-wrap: wrap;
         &.align-left {
             justify-content: flex-start;
         }
-
         &.align-right {
             justify-content: flex-end;
         }
-
         &.align-center {
             justify-content: center;
         }

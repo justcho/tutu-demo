@@ -71,8 +71,9 @@
           }, this.autoCloseDelay * 1000)
         }
       },
-      close(){
+      close() {
         this.$el.remove()
+        this.$emit('close')
         this.$destroy()
       },
       onClickClose(){
@@ -93,8 +94,9 @@
         color: white;align-items: center;background: $toast-bg; border-radius: 4px;
         box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.50);padding: 0 16px;
         left: 50%;
-        .message{
-            padding: 8px 0 ;
+
+        .message {
+            padding: 8px 0;
         }
         .close{
             padding-left: 16px;

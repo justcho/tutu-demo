@@ -1,6 +1,7 @@
 <template>
     <div class="tabs-head">
         <slot></slot>
+        <div class="line" ref="line"></div>
         <div class="actions-wrapper">
             <slot name="actions"></slot>
         </div>
@@ -11,19 +12,31 @@
     name: 'TutuTabsHead',
     inject: ['eventBus'],
     created() {
-
+this.eventBus.$on('update:selected', (item,vm)=>{
+  console.log(vm.$el)
+})
     }
   }
 </script>
 <style scoped lang="scss">
+    $blue: blue;
     $tab-height: 40px;
     .tabs-head {
         display: flex;
         height: $tab-height;
         justify-content: flex-start;
         border: 1px solid red;
-       > .actions-wrapper{
-        margin-left: auto;
+        position: relative;
+
+        > .line {
+            position: absolute;
+            bottom: 0;
+            border-bottom: 1px solid $blue;
+            width: 100px;
+        }
+
+        > .actions-wrapper {
+            margin-left: auto;
         }
     }
 </style>

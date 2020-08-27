@@ -4,6 +4,7 @@
     </div>
 </template>
 <script>
+    import Vue from 'vue'
     export default {
       name: 'TutuTabs',
       props:{
@@ -19,8 +20,19 @@
           }
         }
       },
-      created() {
+      data(){
+        return {
+            eventBus: new Vue()
+        }
+      },
+      provide(){
+      return{
+        eventBus: this.eventBus
+      }
+      },
+      mounted() {
         // this.$emit('update:seleted','xxx')
+        this.eventBus.$emit('update:selected',this.selected)
 
       }
     }

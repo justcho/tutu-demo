@@ -5,7 +5,10 @@
 </template>
 <script>
     export default {
-      name: 'TutuTabsBody'
+      name: 'TutuTabsBody',
+      inject:['eventBus'],
+      created() {
+      }
     }
 </script>
 <style>

@@ -11,6 +11,7 @@
     name: 'TutuTabsHead',
     inject: ['eventBus'],
     created() {
+
     }
   }
 </script>
@@ -20,8 +21,6 @@
         display: flex;
         height: $tab-height;
         justify-content: flex-start;
-        align-content: center;
-        align-items: center;
         border: 1px solid red;
        > .actions-wrapper{
         margin-left: auto;

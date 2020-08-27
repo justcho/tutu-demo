@@ -1,7 +1,7 @@
 <template>
     <div class="tabs-head">
         <slot></slot>
-        <div class="line" ref="line"></div>
+        <div class="line" ref="line" ></div>
         <div class="actions-wrapper">
             <slot name="actions"></slot>
         </div>
@@ -11,10 +11,12 @@
   export default {
     name: 'TutuTabsHead',
     inject: ['eventBus'],
-    created() {
-this.eventBus.$on('update:selected', (item,vm)=>{
-  console.log(vm.$el)
-})
+    mounted() {
+      this.eventBus.$on('update:selected', (item, vm) => {
+          let {width, height, top, left} = vm.$el.getBoundingClientRect()
+          this.$refs.line.style.width = `${width}px`
+          this.$refs.line.style.left = `${left}px`
+      })
     }
   }
 </script>
@@ -25,14 +27,13 @@ this.eventBus.$on('update:selected', (item,vm)=>{
         display: flex;
         height: $tab-height;
         justify-content: flex-start;
-        border: 1px solid red;
         position: relative;
 
         > .line {
             position: absolute;
             bottom: 0;
             border-bottom: 1px solid $blue;
-            width: 100px;
+            transition: all 350ms
         }
 
         > .actions-wrapper {

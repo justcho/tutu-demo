@@ -1,6 +1,6 @@
 <template>
-    <div class="popover" @click="xxx">
-        <div class="content-wrapper" v-if="visible">
+    <div class="popover" @click.stop="xxx">
+        <div class="content-wrapper" v-if="visible" @click.stop>
             <slot name="content"></slot>
         </div>
         <slot></slot>
@@ -10,12 +10,25 @@
 <script>
   export default {
     name: "TutuPopover",
-    data() {
+    data () {
       return {visible: false}
     },
     methods: {
-      xxx() {
+      xxx () {
         this.visible = !this.visible
+        if (this.visible === true){
+          this.$nextTick(()=>{
+            let eventHandler = ()=>{
+              this.visible = false
+              console.log('document 隐藏 popover')
+              document.removeEventListener('click',eventHandler)
+            }
+
+            document.addEventListener('click',eventHandler)
+          })
+        }else{
+          console.log('vm 隐藏 popover')
+        }
       }
     }
   }

@@ -5,29 +5,35 @@
 </template>
 
 <script>
-    import Vue  from 'vue'
+  import Vue from 'vue'
   export default {
-    name: "Tutucollapse",
-    props:{
-      single:{
+    name: "GuluCollapse",
+    props: {
+      single: {
         type: Boolean,
         default: false
+      },
+      selected: {
+        type: String,
       }
     },
-    data(){
+    data () {
       return {
         eventBus: new Vue()
       }
     },
-    provide(){
-      if(this.single){
-        return  {
-          eventBus: this.eventBus
-        }
+    provide () {
+      return {
+        eventBus: this.eventBus
       }
+    },
+    mounted () {
+      this.eventBus.$emit('update:selected', this.selected)
+      this.eventBus.$on('update:selected', (name) => {
+        this.$emit('update:selected', name)
+      })
     }
   }
-
 </script>
 
 <style scoped lang="scss">

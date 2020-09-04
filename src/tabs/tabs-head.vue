@@ -1,5 +1,5 @@
 <template>
-    <div class="tabs-head">
+    <div class="tabs-head" ref="head">
         <slot></slot>
         <div class="line" ref="line"></div>
         <div class="actions-wrapper">
@@ -11,37 +11,41 @@
   export default {
     name: 'TutuTabsHead',
     inject: ['eventBus'],
-    mounted() {
+    mounted () {
       this.eventBus.$on('update:selected', (item, vm) => {
-        let {width, height, top, left} = vm.$el.getBoundingClientRect()
-        this.$refs.line.style.width = `${width}px`
-        this.$refs.line.style.left = `${left}px`
+        this.updateLinePosition(vm)
       })
+    },
+    methods: {
+      updateLinePosition (selectedVm) {
+        let {width, left} = selectedVm.$el.getBoundingClientRect()
+        let {left: left2} = this.$refs.head.getBoundingClientRect()
+        this.$refs.line.style.width = `${width}px`
+        this.$refs.line.style.left = `${left - left2}px`
+      }
     }
   }
 </script>
 <style scoped lang="scss">
-    $blue: blue;
     $tab-height: 40px;
-    $border-color: #666;
+    $blue: green;
+    $border-color: #ddd;
     .tabs-head {
         display: flex;
         height: $tab-height;
         justify-content: flex-start;
         position: relative;
         border-bottom: 1px solid $border-color;
-
         > .line {
             position: absolute;
             bottom: 0;
             border-bottom: 1px solid $blue;
-            transition: all 350ms
+            transition: all 350ms;
         }
-
         > .actions-wrapper {
             margin-left: auto;
-            display:flex;
-            align-items: cennter;
+            display: flex;
+            align-items: center;
             justify-content: center;
             padding: 0 1em;
         }

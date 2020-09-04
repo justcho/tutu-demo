@@ -19,7 +19,7 @@
         default: false
       },
       name: {
-        type: [String,  Number],
+        type: [String,Number],
         required: true
       }
     },
@@ -48,7 +48,7 @@
   }
 </script>
 <style lang="scss" scoped>
-    $blue: blue;
+    $blue: green;
     $disabled-test-color: gray;
     .tabs-item {
         flex-shrink: 0;

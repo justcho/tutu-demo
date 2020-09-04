@@ -2,10 +2,10 @@ import {describe} from "mocha"
 
 const expect = chai.expect;
 import Vue from 'vue'
-import Row from '../src/row'
-import Col from '../src/col'
-import Button from "../src/button"
-import row from "../src/row"
+import Row from '../src/grid/row'
+import Col from '../src/grid/col'
+import Button from "../src/button/button"
+import row from "../src/grid/row"
 
 Vue.config.productionTip = false
 Vue.config.devtools = false

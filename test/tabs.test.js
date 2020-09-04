@@ -1,13 +1,13 @@
-import Row from "../src/row"
+import Row from "../src/grid/row"
 
 const expect = chai.expect;
 import Vue from 'vue'
-import Tabs from '../src/tabs'
-import TabsHead from '../src/tabs-head'
-import TabsBody from '../src/tabs-body'
-import TabsItem from '../src/tabs-item'
-import TabsPane from '../src/tabs-pane'
-import Button from "../src/button"
+import Tabs from '../src/tabs/tabs'
+import TabsHead from '../src/tabs/tabs-head'
+import TabsBody from '../src/tabs/tabs-body'
+import TabsItem from '../src/tabs/tabs-item'
+import TabsPane from '../src/tabs/tabs-pane'
+import Button from "../src/button/button"
 
 Vue.component('g-tabs', Tabs)
 Vue.component('g-tabs-head', TabsHead)
